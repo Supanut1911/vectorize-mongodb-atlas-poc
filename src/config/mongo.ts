@@ -1,20 +1,15 @@
-import { MongoClient } from 'mongodb';
-
+import mongoose, { mongo } from 'mongoose';
 const uri = process.env.MONGO_ATLAS_URL as string
-const client = new MongoClient(uri);
-
 
 export const connectDB = async() => {
-  try {
-    await client.connect();
-    console.log("Connected to MongoDB");
-  } catch (e) {
+	mongoose.connect(uri)
+	.then(() => {
+		console.log("Connected to MongoDB");
+	})
+	.catch((e) => {
 		console.error("connect to MonoDB error: ",e);
-	} finally {
-    await client.close();
-  }
+	})
+	.finally(() => {
+		mongoose.connection.close();
+	})
 }
-
-
-
-// run().catch(console.dir);
