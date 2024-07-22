@@ -20,4 +20,4 @@ const merchantSchema  = new Schema<IMerchant>({
     }]
 })
 
-export default model<IMerchant>('Merchant', merchantSchema);
+export default model<IMerchant>('merchant_db', merchantSchema);

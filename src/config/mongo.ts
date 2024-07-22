@@ -9,7 +9,4 @@ export const connectDB = async() => {
 	.catch((e) => {
 		console.error("connect to MonoDB error: ",e);
 	})
-	.finally(() => {
-		mongoose.connection.close();
-	})
 }
