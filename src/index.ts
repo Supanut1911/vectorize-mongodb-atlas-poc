@@ -4,7 +4,7 @@ import * as dotenv from "dotenv";
 import { connectDB } from './config/mongo'
 
 //router
-import merchantRouter from './routers/metchant';
+import merchantRouter from './routers/merchant';
 import productRouter from './routers/product';
 
 

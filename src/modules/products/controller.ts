@@ -11,5 +11,14 @@ export const createProduct = async(req: Request, res: Response) => {
         console.log(error);
         res.status(400).json(error)
     }
+}
 
+export const getProduct = async(req: Request, res: Response) => {
+    try {
+        const product = await Product.find()
+        res.json(product)
+    } catch (error) {
+        console.log(error);
+        res.status(400).json(error)
+    }
 }
