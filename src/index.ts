@@ -6,6 +6,7 @@ import { connectDB } from './config/mongo'
 //router
 import merchantRouter from './routers/merchant';
 import productRouter from './routers/product';
+import { createVectorStore } from './services/vectorize';
 
 
 dotenv.config();
@@ -17,8 +18,9 @@ const port = 4455;
 app.use(express.json());
 
 app.get('/', async (req, res) => {
-  const response = await createChain()
-  res.json(response);
+  // const response = await createChain()
+  await createVectorStore()
+  res.json("yo");
 });
 
 app.use('/api', merchantRouter)
